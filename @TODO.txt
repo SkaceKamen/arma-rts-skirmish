@@ -1,0 +1,11 @@
+UI - Add action buttons
+	. Behaviour
+	. Speed
+	. Formation ?
+	. Get out
+	. Transport out
+MAP - Add more complex objectives
+UI - Show message about capping point
+UI - Show message about loosing entire group
+UI - Complex waypoints - holding RMB creates waypoint confix dialog
+UI - Complex waypoints - holding RMB and pointing will change group formDir
