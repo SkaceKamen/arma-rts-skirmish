@@ -27,8 +27,8 @@ class RTS_Config_Subtitle : RscStatic
 
 class RTS_Config
 {
-    idd = 2;
-    movingEnable = 1;
+    idd = 10001;
+	movingEnable = false;
 	
 	class controlsBackground
 	{

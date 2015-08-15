@@ -54,11 +54,12 @@ _struct = [
 //This actually works? Why didn't I used  it instead of that _struct? Sigh
 _group setVariable ["RTS_Object", _struct];
 
-//Somehow I commited to saving controls to the groups, rather than having stack of controls for each point in UI class, which would make more sence
-_markers = _struct call RTS_UI_createGroupControls;
-_struct set [2, _markers];
 
 if (!_dont_add) then {
+	//Somehow I commited to saving controls to the groups, rather than having stack of controls for each point in UI class, which would make more sence
+	_markers = _struct call RTS_UI_createGroupControls;
+	_struct set [2, _markers];
+
 	_list set [count(_list), _struct];
 	
 	if (_side != side(player)) then {

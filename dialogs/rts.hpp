@@ -22,7 +22,7 @@ class ScoreDisplay : RscStatic
 
 class RTS_UI
 {
-    idd = 1;
+    idd = 1004;
     movingEnable = 1;  
     class controlsBackground
     {

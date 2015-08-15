@@ -16,8 +16,8 @@ class Mission
 	randomSeed=1220087;
 	class Intel
 	{
-		briefingName="Random RTS Skirmish";
-		overviewText="Random RTS skirmish on random place on island";
+		briefingName="RTS Skirmish";
+		overviewText="RTS skirmish on random place on island";
 		resistanceWest=0;
 		startWeather=0.28999999;
 		startWind=0.099999994;

@@ -41,7 +41,7 @@ class RTS_Result_UnitsGroup : RscControlsGroup
 
 class RTS_Result
 {
-    idd = 11;
+    idd = 1003;
     movingEnable = 1;
 	
 	class controlsBackground

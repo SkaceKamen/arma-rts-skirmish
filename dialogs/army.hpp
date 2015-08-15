@@ -24,7 +24,7 @@ class RTS_Army_Subtitle : RscStatic
 
 class RTS_Army
 {
-    idd = 10;
+    idd = 10002;
     movingEnable = 1;
 	
 	class controlsBackground

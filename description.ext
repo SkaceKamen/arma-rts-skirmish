@@ -7,25 +7,3 @@
 
 author = "SkaceKachna";
 briefing = 0;
-
-class CfgRadio 
-{
-	class responseMoving01
-	{
-		name = "responseMoving01";
-		sound[] = {"@a3\dubbing_radio_f\data\Male02\RadioProtocolENG\Normal\130_Com_Reply\OnTheWay_1.ogg", 1, 1.0};
-		title = "On my way";
-	};
-	/* "RadioProtocolENG\Normal\130_Com_Reply\OnTheWay_2.ogg","RadioProtocolENG\Normal\130_Com_Reply\OnTheWay_3.ogg" */
-};
-
-class CfgSounds
-{
-	class responseMoving02
-	{
-		name = "responseMoving02";
-		sound[] = {"@a3\dubbing_radio_f\data\Male02\RadioProtocolENG\Normal\130_Com_Reply\OnTheWay_1.ogg", 1, 1.0};
-		titles[] = {1, "On my way"};
-	};
-	/* "RadioProtocolENG\Normal\130_Com_Reply\OnTheWay_2.ogg","RadioProtocolENG\Normal\130_Com_Reply\OnTheWay_3.ogg" */
-};
