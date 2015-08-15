@@ -1,2 +1,2 @@
-# arma-rts-skirmish
-RTS mission for arma
+# RTS Skirmish
+RTS mission for Arma 3
