@@ -9,7 +9,7 @@ lnbClear _ctrl;
 	
 	_ctrl lnbAddRow [_name,str(_x select 1)];
 	_ctrl lnbSetPicture [[_foreachIndex,0],_image];
-	_ctrl lnbSetColor [[_foreachIndex, 1], _textColor];
+	_ctrl lnbSetPictureColor [[_foreachIndex,0], _color];
 } foreach RTS_PLAYER_ARMY_CURRENT;
 
 //Hide deploy control when there isn't anything to deploy

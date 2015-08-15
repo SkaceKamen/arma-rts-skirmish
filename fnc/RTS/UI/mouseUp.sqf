@@ -32,7 +32,7 @@ if (RTS_UI_DEPLOYING) exitWith {
 			_money = RTS_MAP_MONEY select RTS_PLAYER_SIDE;
 			RTS_MAP_MONEY set [RTS_PLAYER_SIDE, _money - (_info select 1)];
 			[RTS_PLAYER_ARMY_CURRENT, RTS_UI_DEPLOYED_INDEX] call RTS_removeAt;
-			[side(player), _pos, _info] call RTS_Group_create;
+			[side(player), _pos, _info, RTS_MAP_SPAWNS_DIRECTIONS select RTS_PLAYER_SIDE] call RTS_Group_create;
 			call RTS_UI_deployRefresh;
 			
 			RTS_UI_DEPLOYING = false;
@@ -185,7 +185,9 @@ if (_this select 1 == MOUSE_RIGHT) then {
 				//This could help with the COMBAT problem, it doesn't
 				_wp setWaypointCombatMode "YELLOW";
 				
-				leader(_group) doMove _pos;		
+				if (!_shift) then {
+					leader(_group) doMove _pos;
+				};
 			} foreach RTS_SELECTED;
 
 			//@TODO: Either extract those from game, or record some

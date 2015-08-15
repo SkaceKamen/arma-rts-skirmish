@@ -7,7 +7,7 @@ RTS_OPTIONS_MONEY_START = 600;
 RTS_OPTIONS_MONEY_PER_SECOND = 5;
 
 //Starting score
-RTS_OPTIONS_SCORE = 10;
+RTS_OPTIONS_SCORE = 900;
 //Score modifier for having flag for one second
 RTS_OPTIONS_SCORE_PER_FLAG = 2;
 //Score modifier for losing unit

@@ -66,7 +66,7 @@ if (RTS_UI_DRAW == -1) then {
 } foreach (RTS_UNITS select RTS_PLAYER_SIDE);
 
 {
-	_x set [2, _x call RTS_UI_createGroupControls];
+	_x set [4, [(_x select 6) call RTS_UI_createPointMarker]];
 } foreach RTS_MAP_POINTS;
 
 //Reset controls stacks (should have used this for the groups and points too)

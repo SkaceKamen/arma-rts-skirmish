@@ -6,3 +6,10 @@ UI - Custom menu with HELP option
 UI - Add minimap (maybe use draw event to make custom control?)
 UI - Complex waypoints - holding RMB creates waypoint confix dialog
 UI - Complex waypoints - holding RMB and pointing will change group formDir
+AI - More persons
+	Symethry - AI will copy player loadout
+	General - Will choose one of random presets, then have universal controller
+	Rush hush - Rush with basic units
+AI - More utility commands
+AI - Difficulty?
+GAME - Vehicle unable to fire or move should be considered dead

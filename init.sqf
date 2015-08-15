@@ -65,6 +65,7 @@ _functions = [
 	"events",
 	"onLoad",
 	"onClosed",
+	"dir",
 
 	["Game","start"],
 	
@@ -188,7 +189,15 @@ if (count(_loaded) == 0) then {
 		(RTS_LIST_GROUPS select SIDE_WEST) select 0,
 		(RTS_LIST_GROUPS select SIDE_WEST) select 0,
 		(RTS_LIST_GROUPS select SIDE_WEST) select 0,
-		(RTS_LIST_GROUPS select SIDE_WEST) select 6
+		(RTS_LIST_GROUPS select SIDE_WEST) select 1,
+		(RTS_LIST_GROUPS select SIDE_WEST) select 1,
+		(RTS_LIST_GROUPS select SIDE_WEST) select 4,
+		(RTS_LIST_GROUPS select SIDE_WEST) select 4,
+		(RTS_LIST_GROUPS select SIDE_WEST) select 6,
+		(RTS_LIST_GROUPS select SIDE_WEST) select 6,
+		(RTS_LIST_GROUPS select SIDE_WEST) select 9,
+		(RTS_LIST_GROUPS select SIDE_WEST) select 10,
+		(RTS_LIST_GROUPS select SIDE_WEST) select 2
 	];
 } else {
 	{

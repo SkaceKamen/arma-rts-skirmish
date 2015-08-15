@@ -15,7 +15,7 @@ RTS_LIST_GROUPS set [SIDE_WEST, [
 		["B_Soldier_A_F"],
 		["B_soldier_AR_F"],
 		["B_medic_F"]
-	]],
+	], ["IF_BASIC", "Squad", "AI"]],
 	[["Assault squad","inf"], 200, [
 		["B_Soldier_SL_F"],
 		["B_HeavyGunner_F"],
@@ -25,47 +25,47 @@ RTS_LIST_GROUPS set [SIDE_WEST, [
 		["B_soldier_LAT_F"],
 		["B_Sharpshooter_F"],
 		["B_medic_F"]
-	]],
+	], ["IF_SPEC", "Squad", "SpecOps", "AI"]],
 	[["Sniper team","recon"], 50, [
 		["B_sniper_F"],
 		["B_spotter_F"]
-	]],
+	], ["IF_SNIP", "Team", "Sniper", "AI"]],
 	[["Fire team","inf"], 100, [
 		["B_Soldier_TL_F"],
 		["B_Soldier_GL_F"],
 		["B_soldier_AR_F"],
 		["B_soldier_LAT_F"]
-	]],
+	], ["IF_TEAM", "Team"]],
 	[["AT Team","inf"], 100, [
 		["B_Soldier_TL_F"],
 		["B_soldier_AT_F"],
 		["B_soldier_AT_F"],
 		["B_soldier_AAT_F"]
-	]],
+	], ["IF_AT_TEAM", "Team", "AT", "AI"]],
 	[["AA Team","inf"], 100, [
 		["B_Soldier_TL_F"],
 		["B_soldier_AA_F"],
 		["B_soldier_AA_F"],
 		["B_soldier_AAA_F"]
-	]],
+	], ["IF_AA_TEAM", "Team", "AA", "AI"]],
 	[["Hunter HMG","motor_inf"], 200, [
 		["B_MRAP_01_hmg_F"]
-	]],
+	], ["VEH_CAR", "Vehicle", "Car", "AI"]],
 	[["Hunter GMG","motor_inf"], 250, [
 		["B_MRAP_01_gmg_F"]
-	]],
+	], ["VEH_CAR", "Vehicle", "Car", "AI"]],
 	[["IFV-6c Panther","armor"], 300, [
 		["B_APC_Tracked_01_rcws_F"]
-	]],
+	], ["VEH_APC_WEAK", "Vehicle", "Armor", "AI"]],
 	[["AMV-7 Marshall","armor"], 350, [
 		["B_APC_Wheeled_01_cannon_F"]
-	]],
+	], ["VEH_APC_HEAVY", "Vehicle", "Armor", "AI", "AT"]],
 	[["IFV-6a Cheetah","armor"], 350, [
 		["B_APC_Tracked_01_AA_F"]
-	]],
+	], ["VEH_AA", "Vehicle", "Armor", "AA", "AI", "AT"]],
 	[["M1 Slammer","armor"], 500, [
 		["B_MBT_01_cannon_F"]
-	]]
+	], ["VEH_TANK", "Vehicle", "Armor", "Tank", "AA", "AI", "AT"]]
 ]];
 
 RTS_LIST_GROUPS set [SIDE_EAST, [

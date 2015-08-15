@@ -22,6 +22,12 @@ call RTS_UI_start;
 _side = side(player);
 _position = RTS_MAP_SPAWNS select RTS_PLAYER_SIDE;
 
+_c = RTS_MAP_SPAWNS select RTS_PLAYER_SIDE;
+RTS_CAMERA_POSITION = [_c select 0, _c select 1];
+RTS_CAMERA_DIRECTION = (RTS_MAP_SPAWNS_DIRECTIONS select RTS_PLAYER_SIDE) + 180;
+
+call RTS_UI_updateCamera;
+
 //_position call RTS_MAP_createPoint;
 
 /*

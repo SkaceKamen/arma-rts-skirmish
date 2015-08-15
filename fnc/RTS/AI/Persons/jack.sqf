@@ -6,6 +6,7 @@ _side = _this select 0;
 _index = _this select 1;
 _position = _this select 2;
 _general = _this select 3;
+_direction = RTS_MAP_SPAWNS_DIRECTIONS select _index;
 
 _general setName "Jack";
 
@@ -50,7 +51,7 @@ _army = [
 	{
 		waitUntil { (RTS_MAP_MONEY select _index) >= (_x select 1) };
 		RTS_MAP_MONEY set [_index, (RTS_MAP_MONEY select _index) - (_x select 1)];
-		_group = [_side, _position, _x] call RTS_Group_create;
+		_group = [_side, _position, _x, _direction] call RTS_Group_create;
 		[_group, _foreachIndex] call (_stack select 1);
 	} foreach (_stack select 0);
 } foreach _army;

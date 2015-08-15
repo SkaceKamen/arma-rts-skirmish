@@ -4,6 +4,7 @@ _point = [];
 _direction = 0;
 _distance = 0;
 _spawns = [];
+_spawns_directions = [];
 
 while { true } do {
 	//Load random location
@@ -27,6 +28,10 @@ while { true } do {
 			[(_point select 0) + cos(_direction) * _distance,(_point select 1) + sin(_direction) * _distance],
 			[(_point select 0) + cos(180 + _direction) * _distance,(_point select 1) + sin(180 + _direction) * _distance]
 		];
+		_spawns_directions = [
+			_direction + 180,
+			_direction
+		];
 		
 		if (!surfaceIsWater(_spawns select 0) &&
 			!surfaceIsWater(_spawns select 1)) exitWith {
@@ -43,4 +48,4 @@ while { true } do {
 	};
 };
 
-[_point, _spawns, _distance, _direction];
+[_point, _spawns, _spawns_directions, _distance, _direction];

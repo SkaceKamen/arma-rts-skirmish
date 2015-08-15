@@ -43,7 +43,7 @@ if (_index >= 0) then {
 	
 	_group spawn {
 		sleep 0.1;
-		_struct = [west, RTS_UI_ARMY_POS, _this, true] call RTS_Group_create;
+		_struct = [west, RTS_UI_ARMY_POS, _this, 0, true] call RTS_Group_create;
 		RTS_UI_ARMY_GROUP = _struct select 0;
 		
 		{

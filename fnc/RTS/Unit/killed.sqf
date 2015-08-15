@@ -24,19 +24,19 @@ if (!(_killed_group getVariable ["RTS_Lost", false])) then {
 		_name = ((_obj select 1) select 0) select 0;
 		_alive = { alive _x } count(units(_who));
 		if (_alive == 0) then {
-			if (_side == SIDE_PLAYER) then {
+			if (_side == RTS_PLAYER_SIDE) then {
 				player sideChat format["We lost %1", _name];
 			};
 			
 			_playa = "Player";
-			if (_side != SIDE_PLAYER) then {
+			if (_side != RTS_PLAYER_SIDE) then {
 				_playa = "Enemy";
 			};
 			(format["%1 lost %2", _playa, _name]) call RTS_Stats_Log;
 			
 			_killed_group setVariable ["RTS_Lost", true];
 		} else {
-			if (_side == SIDE_PLAYER) then {
+			if (_side == RTS_PLAYER_SIDE) then {
 				_leader sideChat format["%1 is at %2%3", _name, floor((_alive / (_obj select 3)) * 100), "%"];
 			};
 		};
@@ -54,7 +54,16 @@ if (!isNull(_killer_group)) then {
 	_killer_group setVariable ["RTS_KilledUnits", _num + 1];
 };
 
-_who spawn {
-	sleep 2;
-	_this hideObject false;
+if (isObjectHidden _who) then {
+	_who spawn {
+		sleep 2;
+		_this hideObject false;
+	};
+};
+
+if (RTS_CLEANING) then {
+	_who spawn {
+		sleep RTS_CLEANING_INTERVAL;
+		deleteVehicle _this;
+	};
 };
