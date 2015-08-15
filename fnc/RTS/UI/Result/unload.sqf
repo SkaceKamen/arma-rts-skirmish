@@ -14,4 +14,6 @@ RTS_SELECTED = [];
 	deleteVehicle _x;
 } foreach vehicles;
 
+0 fadeMusic 0;
+
 [] spawn RTS_UI_Config_start;

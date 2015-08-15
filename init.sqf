@@ -90,8 +90,12 @@ _functions = [
 	["Group",[
 		"create",
 		"getPosition",
-		"select"
+		"select",
+		"getIcon",
+		"getColor"
 	]],
+	
+	["Group", "Type", "getIcon"],
 	
 	["Units","setSelected"],
 	
@@ -125,6 +129,8 @@ _functions = [
 		"groupMouseUp",
 		"deployClick",
 		"deployRefresh",
+		"deployRefreshColors",
+		"deployTitleClick",
 		"updateActions",
 		"draw3D"
 	]],
@@ -144,7 +150,8 @@ _functions = [
 	["UI","Result",[
 		"start",
 		"fillUnits",
-		"unload"
+		"unload",
+		"effects"
 	]],
 	
 	["UI", "Actions", [

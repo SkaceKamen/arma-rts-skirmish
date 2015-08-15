@@ -46,14 +46,6 @@ class RTS_UI
 			idc = 3;
 			colorBackground[] = {0, 0, 0, 0.5};
 		};
-		class DeployBackground : RscStatic
-		{
-			x = RTS_UI_DEPLOY_X;
-			y = RTS_UI_DEPLOY_Y + RTS_UI_DEPLOY_TITLE_HEIGHT;
-			w = RTS_UI_DEPLOY_WIDTH;
-			h = RTS_UI_DEPLOY_LIST_HEIGHT;
-			colorBackground[] = {0, 0, 0, 0.5};
-		};
 	};
 	class controls
 	{
@@ -90,44 +82,72 @@ class RTS_UI
 			colorBackground[] = {0.9, 0.14, 0.14, 0.9};
 			style = ST_LEFT;
 		};
-		class DeployTitle : RscStatic
+		
+		class DeployGroup : RscControlsGroup
 		{
 			idc = 6;
+			
 			x = RTS_UI_DEPLOY_X;
 			y = RTS_UI_DEPLOY_Y;
-			w = RTS_UI_DEPLOY_WIDTH * 0.7;
-			h = RTS_UI_DEPLOY_TITLE_HEIGHT;
-			colorBackground[] = {0.6, 0.6, 0, 0.9};
-			text = "Reinforcements";
-		};
-		class DeployPoints : RscStatic
-		{
-			idc = 7;
-			style = ST_RIGHT;
-			x = RTS_UI_DEPLOY_X + RTS_UI_DEPLOY_WIDTH * 0.7;
-			y = RTS_UI_DEPLOY_Y;
-			w = RTS_UI_DEPLOY_WIDTH * 0.3;
-			h = RTS_UI_DEPLOY_TITLE_HEIGHT;
-			colorBackground[] = {0, 0, 0, 0.9};
-			text = "...";
-		};
-		class DeployList : RscListNBox
-		{
-			idc = 8;
-			x = RTS_UI_DEPLOY_X;
-			y = RTS_UI_DEPLOY_Y + RTS_UI_DEPLOY_TITLE_HEIGHT;
 			w = RTS_UI_DEPLOY_WIDTH;
-			h = RTS_UI_DEPLOY_LIST_HEIGHT;
-			columns[] = { 0, 0.8 };
-		};
-		class DeployButton : RscButton
-		{
-			idc = 9;
-			x = RTS_UI_DEPLOY_X;
-			y = RTS_UI_DEPLOY_Y + RTS_UI_DEPLOY_TITLE_HEIGHT + RTS_UI_DEPLOY_LIST_HEIGHT;
-			w = RTS_UI_DEPLOY_WIDTH;
-			h = RTS_UI_DEPLOY_BUTTON_HEIGHT;
-			text = "Deploy";
+			h = RTS_UI_DEPLOY_HEIGHT + 0.01;
+			
+			class controls
+			{
+				class DeployBackground : RscStatic
+				{
+					x = 0;
+					y = RTS_UI_DEPLOY_TITLE_HEIGHT;
+					w = RTS_UI_DEPLOY_WIDTH;
+					h = RTS_UI_DEPLOY_LIST_HEIGHT;
+					colorBackground[] = {0, 0, 0, 0.5};
+				};
+				class DeployTitleBack : RscStatic
+				{
+					x = 0;
+					y = 0;
+					w = RTS_UI_DEPLOY_WIDTH;
+					h = RTS_UI_DEPLOY_TITLE_HEIGHT;
+					colorBackground[] = {0.6, 0.6, 0, 0.9};
+				};
+				class DeployTitle : RscStatic
+				{
+					idc = 601;
+					x = 0;
+					y = 0;
+					w = RTS_UI_DEPLOY_WIDTH * 0.7;
+					h = RTS_UI_DEPLOY_TITLE_HEIGHT;
+					text = "Reinforcements";
+				};
+				class DeployPoints : RscStatic
+				{
+					idc = 602;
+					style = ST_RIGHT;
+					x = RTS_UI_DEPLOY_WIDTH * 0.7;
+					y = 0;
+					w = RTS_UI_DEPLOY_WIDTH * 0.3;
+					h = RTS_UI_DEPLOY_TITLE_HEIGHT;
+					text = "...";
+				};
+				class DeployList : RscListNBox
+				{
+					idc = 603;
+					x = 0;
+					y = RTS_UI_DEPLOY_TITLE_HEIGHT;
+					w = RTS_UI_DEPLOY_WIDTH;
+					h = RTS_UI_DEPLOY_LIST_HEIGHT;
+					columns[] = { 0, 0.8 };
+				};
+				class DeployButton : RscButton
+				{
+					idc = 604;
+					x = 0;
+					y = RTS_UI_DEPLOY_TITLE_HEIGHT + RTS_UI_DEPLOY_LIST_HEIGHT;
+					w = RTS_UI_DEPLOY_WIDTH;
+					h = RTS_UI_DEPLOY_BUTTON_HEIGHT;
+					text = "Deploy";
+				};
+			};
 		};
 	};
 };

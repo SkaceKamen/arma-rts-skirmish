@@ -61,5 +61,12 @@
 //Draw deploy zone limits
 if (RTS_UI_DEPLOYING) then {
 	_pos = (RTS_MAP_SPAWNS select RTS_PLAYER_SIDE) vectorAdd [0, 0, 0.5];
-	[_pos, RTS_DEPLOY_RADIUS, [1,0,0,1], 24] call RTS_drawArc;
+	_color = [1,1,0,1];
+	if (MOUSE_WORLD_POSITION distance (RTS_MAP_SPAWNS select RTS_PLAYER_SIDE) >= RTS_DEPLOY_RADIUS) then {
+		if (round(time) == floor(time)) then {
+			_color = [1,0,0,1];
+		};
+	};
+	
+	[_pos, RTS_DEPLOY_RADIUS, _color, 24] call RTS_drawArc;
 };

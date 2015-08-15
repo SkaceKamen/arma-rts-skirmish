@@ -12,6 +12,9 @@ _ctrl = _this select 5;
 //@TODO: Is there better way?
 RTS_UI_MOUSE_LASTCLICK = time;
 
+//Hide user selection rectangle (not always visible, don't care)
+(["RTS_UI", "Selection"] call RTS_getCtrl) ctrlShow false;
+
 //Stop this event if button in UI was clicked - mouseDown event can't be stopped
 if (RTS_UI_MOUSE_HANDLED) exitWith {
 	RTS_UI_MOUSE_HANDLED = false;
@@ -23,7 +26,7 @@ if (RTS_UI_DEPLOYING) exitWith {
 		RTS_UI_DEPLOYING = false;
 	};
 	if (_this select 1 == MOUSE_LEFT) then {
-		_pos = screenToWorld MOUSE_POSITION;
+		_pos = MOUSE_WORLD_POSITION;
 		if (_pos distance (RTS_MAP_SPAWNS select RTS_PLAYER_SIDE) < RTS_DEPLOY_RADIUS) then {
 			_info = RTS_UI_DEPLOYED;
 			_money = RTS_MAP_MONEY select RTS_PLAYER_SIDE;
@@ -38,10 +41,7 @@ if (RTS_UI_DEPLOYING) exitWith {
 };
 
 //Group selection
-if (_this select 1 == MOUSE_LEFT) then {
-	//Control displaying user selection
-	(["RTS_UI", "Selection"] call RTS_getCtrl) ctrlShow false;
-	
+if (_this select 1 == MOUSE_LEFT) then {	
 	//Calculate correct selection rectangle
 	_m1 = RTS_MOUSE_START select 0;
 	_m2 = MOUSE_POSITION;
@@ -108,7 +108,7 @@ if (_this select 1 == MOUSE_RIGHT) then {
 		//For end game statistics
 		RTS_STATS_COMMANDS = RTS_STATS_COMMANDS + 1;
 		
-		_pos = screenToWorld MOUSE_POSITION;
+		_pos = MOUSE_WORLD_POSITION;
 		
 		//Check for interesting objects on player cursor
 		_interests = call RTS_UI_mouseInterests;
@@ -147,21 +147,14 @@ if (_this select 1 == MOUSE_RIGHT) then {
 				if (!isNull(_veh)) then {
 					{
 						_group = _x select 0;
-						{
-							if (alive _x) then {
-								_f = false;
-								{
-									if ((_veh emptyPositions _x) > 0 && count([_veh,_x] call RTS_Vehicle_Assigned) < (_veh emptyPositions _x)) exitWith
-									{
-										_f = true;
-										
-										//@TODO: Performance?
-										[_u,_veh] call compile(format["(_this select 0) assignAs%1 (_this select 1)",_x]);
-									};
-									if (_f) exitWith {};
-								} foreach _spots;
+						if (!_shift) then {
+							while {(count (waypoints _group)) > 0} do {
+								deleteWaypoint ((waypoints _group) select 0);
 							};
-						} foreach units(_group);
+						};
+						_wp = _group addWaypoint [getPos(_enemy), 0];
+						_wp setWaypointType "GETIN";
+						_wp waypointAttachVehicle _veh;
 					} foreach RTS_SELECTED;
 				} else {
 					if (!isNull(_build)) then {
@@ -196,8 +189,10 @@ if (_this select 1 == MOUSE_RIGHT) then {
 			} foreach RTS_SELECTED;
 
 			//@TODO: Either extract those from game, or record some
-			/*playSound "responseMoving02";
-			player commandRadio "responseMoving01";*/
+			/*
+			playSound "responseMoving02";
+			player commandRadio "responseMoving01";
+			*/
 			
 			//Display moving marker
 			_pos spawn {

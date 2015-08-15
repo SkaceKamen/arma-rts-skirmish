@@ -24,6 +24,9 @@ lnbClear _ctrl;
 {
 	_group = _x select 0;
 	_info = _x select 1;
+	_icon = _x call RTS_Group_getIcon;
+	_color = _x call RTS_Group_getColor;
+	
 	_kills_inf = _group getVariable ["RTS_KilledUnits", 0];
 	_kills_veh = _group getVariable ["RTS_KilledVehicles", 0];
 	_lost_inf = _group getVariable ["RTS_LostUnits", 0];
@@ -34,9 +37,11 @@ lnbClear _ctrl;
 		_eff = (_kills_inf + _kills_veh) / (_lost_inf + _lost_veh);
 	};
 	
+	_eff = round(_eff * 100)/100;
+	
 	_ctrl lnbAddRow [(_info select 0) select 0, _deployed call RTS_strInterval, str(_kills_inf), str(_kills_veh), str(_lost_inf), str(_lost_veh), str(_eff)];
-	_ctrl lnbSetPicture [[_foreachIndex, 0], (_info select 0) select 1];
-	_ctrl lnbSetPictureColor [[_foreachIndex,0], RTS_UI_MARKER_UNSELECTED];
+	_ctrl lnbSetPicture [[_foreachIndex, 0], _icon];
+	_ctrl lnbSetPictureColor [[_foreachIndex,0], _color];
 	
 	if (_eff > _most_effetive) then {
 		_most_effetive = _eff;
@@ -64,13 +69,13 @@ lnbClear _ctrl;
 	_ctrl = ["RTS_Result", (_x select 1), ["controls", "unitsResult", "controls"]] call RTS_getCtrl;
 	if (count(_x select 0) > 0) then {
 		_params = (_x select 0) select 1;
-		_text = format["<t size='1.2'><img size='1.2' color='#ffffff' shadow='0' image='%1'/> %2</t>",(_params select 0) select 1, (_params select 0) select 0];
+		_text = format["<t size='1.2'><img size='1.2' color='%3' shadow='0' image='%1'/> %2</t><br /><t color='#eee'>%4</t>", (_x select 0) call RTS_Group_getIcon, (_params select 0) select 0, ((_x select 0) call RTS_Group_getColor) call BIS_fnc_colorRGBAtoHTML, _x select 2];
 		_ctrl ctrlSetStructuredText parseText(_text);
 	} else {
 		_ctrl ctrlSetStructuredText parseText("");
 	};
 } foreach [
-	[_most_kills_inf_group,"unitsMostUnitKills"],
-	[_most_kills_veh_group,"unitsMostVehicleKills"],
-	[_most_effetive_group,"unitsMostEffective"]
+	[_most_kills_inf_group,"unitsMostUnitKills",str(_most_kills_inf) + " kills"],
+	[_most_kills_veh_group,"unitsMostVehicleKills",str(_most_kills_veh) + " vehicles destroyed"],
+	[_most_effetive_group,"unitsMostEffective",str(_most_effetive) + " effectivity"]
 ];

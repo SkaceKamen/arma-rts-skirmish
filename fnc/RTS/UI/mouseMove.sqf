@@ -6,6 +6,7 @@ _y = _this select 2;
 _z = _this select 3;
 
 MOUSE_POSITION = [_x,_y];
+MOUSE_WORLD_POSITION = screenToWorld MOUSE_POSITION;
 
 //Camera controls and selection
 if (MOUSE_PRESSED select MOUSE_MIDDLE ||

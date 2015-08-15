@@ -16,6 +16,7 @@ _cost = _params select 1;
 _units = _params select 2;
 
 _group = creategroup _side;
+_group setVariable ["RTS_Side", _side call RTS_getSideIndex];
 _group setVariable ["RTS_KilledUnits", 0];
 _group setVariable ["RTS_KilledVehicles", 0];
 _group setVariable ["RTS_LostUnits", 0];

@@ -11,7 +11,7 @@ _ctrls = [];
 _ctrl = _display ctrlCreate ["RscPictureKeepAspect", -1];
 _ctrl ctrlSetPosition [0,0,0.04,0.04];
 _ctrl ctrlSetTextColor RTS_UI_MARKER_UNSELECTED;
-_ctrl ctrlSetText ((_params select 0) select 1);
+_ctrl ctrlSetText (_this call RTS_Group_getIcon);
 _ctrl ctrlShow false;
 _ctrl ctrlCommit 0;
 
@@ -40,7 +40,7 @@ _ctrls set [count(_ctrls), _ctrl];
 _ctrl = _display ctrlCreate ["RscPictureKeepAspect", -1];
 _ctrl ctrlSetPosition [0,0,0.08,0.08];
 _ctrl ctrlSetTextColor RTS_UI_MARKER_UNSELECTED;
-_ctrl ctrlSetText ((_params select 0) select 1);
+_ctrl ctrlSetText (_this call RTS_Group_getIcon);
 _ctrl ctrlSetEventHandler ["MouseButtonUp", format["[_this,%1] call RTS_UI_groupMouseUp", _this select 4]];
 //_ctrl setVariable ["RTS_GROUP", _this];
 _ctrl ctrlShow false;

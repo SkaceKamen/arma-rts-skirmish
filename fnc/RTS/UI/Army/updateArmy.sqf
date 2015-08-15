@@ -5,7 +5,7 @@ _ctrl = ["RTS_Army", "playerArmy"] call RTS_getCtrl;
 lnbClear _ctrl;
 {
 	_name = (_x select 0) select 0;
-	_image = (_x select 0) select 1;
+	_image = [RTS_PLAYER_SIDE, _x] call RTS_Group_Type_getIcon;
 	_ctrl lnbAddRow [_name,str(_x select 1)];
 	_ctrl lnbSetPicture [[_foreachIndex,0],_image];
 	_ctrl lnbSetPictureColor [[_foreachIndex,0], RTS_UI_MARKER_UNSELECTED];
@@ -17,7 +17,7 @@ _ctrl = ["RTS_Army", "shopArmy"] call RTS_getCtrl;
 lnbClear _ctrl;
 {
 	_name = (_x select 0) select 0;
-	_image = (_x select 0) select 1;
+	_image = [RTS_PLAYER_SIDE, _x] call RTS_Group_Type_getIcon;
 	_ctrl lnbAddRow [_name,str(_x select 1)];
 	_ctrl lnbSetPicture [[_foreachIndex,0], _image];
 	_ctrl lnbSetPictureColor [[_foreachIndex,0], RTS_UI_MARKER_UNSELECTED];

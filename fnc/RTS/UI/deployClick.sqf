@@ -1,4 +1,4 @@
-_index = lnbCurSelRow (["RTS_UI", "DeployList"] call RTS_getCtrl);
+_index = lnbCurSelRow (["RTS_UI", "DeployList", ["controls", "DeployGroup", "controls"]] call RTS_getCtrl);
 
 if (_index >= 0) then {
 	_info = RTS_PLAYER_ARMY_CURRENT select _index;

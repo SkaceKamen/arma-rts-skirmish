@@ -16,7 +16,7 @@ _units_bg = ["RTS_UI", "SelectedBackground", "controlsBackground"] call RTS_getC
 
 _score_friendly = ["RTS_UI", "ScoreFriendly"] call RTS_getCtrl;
 _score_enemy = ["RTS_UI", "ScoreEnemy"] call RTS_getCtrl;
-_deploy_money = ["RTS_UI", "DeployPoints"] call RTS_getCtrl;
+_deploy_money = ["RTS_UI", "DeployPoints", ["controls", "DeployGroup", "controls"]] call RTS_getCtrl;
 
 //Only cycle when playing and there is dialog on
 while { !RTS_MAP_DONE && dialog } do {
@@ -73,7 +73,6 @@ while { !RTS_MAP_DONE && dialog } do {
 		_yy = RTS_UI_TASKBAR_Y;
 		
 		_marker ctrlSetPosition [_xx, _yy + (_current2 select 3)];
-		_marker ctrlSetText (((_x select 1) select 0) select 1);
 		_marker ctrlCommit 0;
 		_marker ctrlShow true;
 		

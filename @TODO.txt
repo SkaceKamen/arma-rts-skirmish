@@ -1,11 +1,6 @@
-UI - Add action buttons
-	. Behaviour
-	. Speed
-	. Formation ?
-	. Get out
-	. Transport out
-MAP - Add more complex objectives
-UI - Show message about capping point
-UI - Show message about loosing entire group
+CONFIG - Allow selection of map
+MAP - Allow switching between 3 and 1 objectives ?
+UI - Custom menu with HELP option
+HELP - Create help dialog with basic controls
 UI - Complex waypoints - holding RMB creates waypoint confix dialog
 UI - Complex waypoints - holding RMB and pointing will change group formDir

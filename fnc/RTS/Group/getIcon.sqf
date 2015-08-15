@@ -1,0 +1,1 @@
+[(_this select 0) getVariable ["RTS_Side", RTS_PLAYER_SIDE], _this select 1] call RTS_Group_Type_GetIcon;

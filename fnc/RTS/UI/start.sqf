@@ -27,8 +27,19 @@ _ctrl ctrlAddEventHandler ["MouseMoving", RTS_UI_mouseMove];
 _ctrl ctrlAddEventHandler ["MouseHolding", RTS_UI_mouseIdle];
 _ctrl ctrlAddEventHandler ["MouseZChanged", RTS_UI_mouseWheel];
 
-_ctrl = ["RTS_UI", "DeployButton"] call RTS_getCtrl;
+//Deploy controls
+_ctrl = ["RTS_UI", "DeployButton", ["controls", "DeployGroup", "controls"]] call RTS_getCtrl;
+//Make sure control is clickable
+_ctrl ctrlEnable true;
 _ctrl ctrlAddEventHandler ["MouseButtonUp", RTS_UI_deployClick];
+
+_ctrl = ["RTS_UI", "DeployTitle", ["controls", "DeployGroup", "controls"]] call RTS_getCtrl;
+_ctrl ctrlEnable true;
+_ctrl ctrlAddEventHandler ["MouseButtonUp", RTS_UI_deployTitleClick];
+
+_ctrl = ["RTS_UI", "DeployList", ["controls", "DeployGroup", "controls"]] call RTS_getCtrl;
+_ctrl ctrlEnable true;
+_ctrl ctrlAddEventHandler ["MouseButtonUp", { RTS_UI_MOUSE_HANDLED = true }];
 
 //Display deploy list
 call RTS_UI_deployRefresh;

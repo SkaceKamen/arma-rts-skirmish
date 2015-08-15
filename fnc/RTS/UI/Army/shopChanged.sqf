@@ -14,7 +14,7 @@ _index = lnbCurSelRow _ctrl;
 if (_index >= 0) then {
 	_group = _list select _index;
 	
-	_text = format["<t size='1.2'><img size='1.2' color='#ffffff' shadow='0' image='%1'/> %2</t>",(_group select 0) select 1, (_group select 0) select 0];
+	_text = format["<t size='1.2'><img size='1.2' color='%3' shadow='0' image='%1'/> %2</t>", [RTS_PLAYER_SIDE, _group] call RTS_Group_Type_getIcon, (_group select 0) select 0, RTS_UI_MARKER_UNSELECTED call BIS_fnc_colorRGBAtoHTML];
 	{
 		_class = _x select 0;
 		_name = getText(configFile >> "cfgVehicles" >> _class >> "displayName");

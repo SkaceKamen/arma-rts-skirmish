@@ -27,6 +27,16 @@ _ctrl ctrlAddEventHandler ["ButtonClick", {
 		_g setVariable ["RTS_LostVehicles", floor(random(10))];
 	} foreach RTS_PLAYER_ARMY;
 	
+	{
+		_g = [east, _position, _x] call RTS_Group_create;
+		//[_side, _position, _x] call new_RTS_Group;
+		_g = _g select 0;
+		_g setVariable ["RTS_KilledUnits", floor(random(10))];
+		_g setVariable ["RTS_KilledVehicles", floor(random(10))];
+		_g setVariable ["RTS_LostUnits", floor(random(10))];
+		_g setVariable ["RTS_LostVehicles", floor(random(10))];
+	} foreach RTS_PLAYER_ARMY;
+	
 	"TEST 1" call RTS_Stats_Log;
 	["TEST 2",[1,0.8,0.8,1]] call RTS_Stats_Log;
 	"TEST 3" call RTS_Stats_Log;

@@ -220,7 +220,7 @@ class RTS_Result
 					x = RTS_RESULT_UNIT_W + RTS_RESULT_MARGIN;
 					y = 0;
 					w = RTS_RESULT_UNIT_W;
-					text = "Most vehicles killed";
+					text = "Most vehicles destroyed";
 				};
 				
 				class unitsMostEffectiveTitle : RTS_Result_Subtitle
@@ -273,7 +273,7 @@ class RTS_Result
 					y = RTS_RESULT_UNIT_H + RTS_RESULT_SUBTITLE_H + RTS_RESULT_MARGIN * 2;
 					w = RTS_RESULT_W * RTS_RESULT_UNITS_HEADER_W;
 					h = RTS_RESULT_SUBTITLE_H;
-					text = "Vehicles killed";
+					text = "Vehicles destroyed";
 				};
 				
 				class unitsAllHeaderUnitLost : RTS_Result_Header

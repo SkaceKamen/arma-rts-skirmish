@@ -12,6 +12,8 @@ if (count(_this) > 0) then {
 	RTS_RESULT = _result;
 };
 
+_result spawn RTS_UI_Result_effects;
+
 _ctrl = ["RTS_Result", "resultTitle"] call RTS_getCtrl;
 if (_result) then {
 	_ctrl ctrlSetText "Victory";
@@ -70,12 +72,15 @@ _ctrl ctrlAddEventHandler ["ButtonClick", {
 }];
 
 _survived = [0,0,0,0];
+_lost = [0,0,0,0];
 _total = 0;
 {
 	_side = _foreachIndex;
 	{
 		_lost_inf = (_x select 0) getVariable ["RTS_LostUnits", 0];
 		_sur = { alive _x } count units(_x select 0);
+		_los = (_x select 3) - _sur;
+		_lost set [_side, (_lost select _side) + _los];
 		_survived set [_side, (_survived select _side) + _sur];
 		_total = _total + _sur;
 	} foreach _x;
@@ -88,7 +93,8 @@ _data = [
 	["Bullets fired", str(RTS_STATS_BULLETS)],
 	["Friendly survivors", str(_survived select RTS_PLAYER_SIDE)],
 	["Enemy survivors", str(_survived select RTS_ENEMY_SIDE)],
-	["Total people survived", str(_total)],
+	["Friendly casualties", str(_lost select RTS_PLAYER_SIDE)],
+	["Enemy casualties", str(_lost select RTS_ENEMY_SIDE)],
 	["Comands given", str(RTS_STATS_COMMANDS)]
 ];
 
@@ -99,7 +105,9 @@ _ctrl = ["RTS_Result", "textStats", ["controls", "statsResult", "controls"]] cal
 } foreach _data;
 
 _ctrl = ["RTS_Result", "events", ["controls", "statsResult", "controls"]] call RTS_getCtrl;
+for[{_i = count(RTS_STATS_MESSAGES) - 1},{_i >= 0},{_i = _i - 1}] do
 {
+	_x = RTS_STATS_MESSAGES select _i;
 	_ctrl lnbAddRow [((_x select 0) - RTS_MAP_STARTED) call RTS_strInterval, _x select 1];
 	if (count(_x) > 2) then {
 		_ctrl lnbSetColor [[_foreachIndex,1], _x select 2];
@@ -109,8 +117,7 @@ _ctrl = ["RTS_Result", "events", ["controls", "statsResult", "controls"]] call R
 			_ctrl lnbSetPicture [[_foreachIndex,0], _x select 3];
 		};
 	};
-} foreach RTS_STATS_MESSAGES;
-
+};
 
 [] spawn {
 	_dead = allDead;

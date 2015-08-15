@@ -7,6 +7,7 @@ _money_dividor = (_money_median ^ 2) / (RTS_OPTIONS_MONEY - RTS_OPTIONS_MONEY_ST
 
 while { !RTS_MAP_DONE } do {
 	_owned = [0,0,0];
+	_max_owned = 0;
 
 	{
 		_pos = _x select 0;
@@ -93,12 +94,23 @@ while { !RTS_MAP_DONE } do {
 		
 
 		_owned set [_owner, (_owned select _owner) + 1];
+		if (_owned select _owner > 	_max_owned) then {
+			_max_owned = _owned select _owner;
+		};
 		
 		_x set [3, _owner];
 	} foreach RTS_MAP_POINTS;
 	
+	{
+		if (_owned select _x < _max_owned) then {
+			RTS_MAP_SCORE set [_x, (RTS_MAP_SCORE select _x) - RTS_OPTIONS_SCORE_PER_FLAG];
+		};
+	} foreach RTS_SIDES;
+	
+	/*
 	RTS_MAP_SCORE set [SIDE_EAST, (RTS_MAP_SCORE select SIDE_EAST) - (_owned select SIDE_WEST) * RTS_OPTIONS_SCORE_PER_FLAG];
 	RTS_MAP_SCORE set [SIDE_WEST, (RTS_MAP_SCORE select SIDE_WEST) - (_owned select SIDE_EAST) * RTS_OPTIONS_SCORE_PER_FLAG];
+	*/
 	
 	if (time - RTS_MAP_STARTED > 60) then {
 		{
@@ -137,6 +149,11 @@ while { !RTS_MAP_DONE } do {
 		RTS_MAP_MONEY set [_foreachIndex, _x + _inc];
 	} foreach RTS_MAP_MONEY;
 	
+	//Refresh deploy menu colors, but only if there is anything to deploy left
+	if (count(RTS_PLAYER_ARMY_CURRENT) > 0) then {
+		call RTS_UI_deployRefreshColors;
+	};
+	
 	if (RTS_FOW) then {
 		{
 			if (_foreachIndex != RTS_PLAYER_SIDE) then {
@@ -150,7 +167,8 @@ while { !RTS_MAP_DONE } do {
 									{
 										_kn = _x knowsAbout _sld;
 										if (_kn <= 0) then {
-											if (!lineIntersects [eyePos(_sld), eyePos(_x), _sld, _x]) then {
+											if (!lineIntersects [eyePos(_sld), eyePos(_x), _sld, _x] &&
+												!terrainIntersect [eyePos(_sld), eyePos(_x)]) then {
 												group(_x) reveal _sld;
 												group(_sld) reveal _x;
 												_kn = 1;

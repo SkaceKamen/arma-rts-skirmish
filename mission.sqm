@@ -46,13 +46,14 @@ class Mission
 				class Item0
 				{
 					position[]={14082.515,16.671755,16457.256};
-					azimut=30.28438;
+					azimut=30.284401;
 					id=0;
 					side="WEST";
 					vehicle="b_soldier_unarmed_f";
 					player="PLAYER COMMANDER";
 					leader=1;
 					skill=0.60000002;
+					init="this allowDamage false; this hideObject true;";
 				};
 			};
 		};
