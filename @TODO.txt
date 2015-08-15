@@ -1,6 +1,8 @@
+CAMERA - Add camera restriction (X meters from map center)
 CONFIG - Allow selection of map
 MAP - Allow switching between 3 and 1 objectives ?
-UI - Custom menu with HELP option
 HELP - Create help dialog with basic controls
+UI - Custom menu with HELP option
+UI - Add minimap (maybe use draw event to make custom control?)
 UI - Complex waypoints - holding RMB creates waypoint confix dialog
 UI - Complex waypoints - holding RMB and pointing will change group formDir
