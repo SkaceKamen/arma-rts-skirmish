@@ -1,3 +1,4 @@
+/*
 switch(RTS_STATE) do {
 	case "";
 	case "config": {
@@ -10,3 +11,4 @@ switch(RTS_STATE) do {
 		[] spawn RTS_UI_start;
 	};
 };
+*/

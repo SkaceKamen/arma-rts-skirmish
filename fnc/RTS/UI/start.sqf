@@ -41,6 +41,9 @@ _ctrl = ["RTS_UI", "DeployList", ["controls", "DeployGroup", "controls"]] call R
 _ctrl ctrlEnable true;
 _ctrl ctrlAddEventHandler ["MouseButtonUp", { RTS_UI_MOUSE_HANDLED = true }];
 
+_ctrl = ["RTS_UI", "ButtonHelp"] call RTS_getCtrl;
+_ctrl ctrlAddEventHandler ["ButtonClick", { [] spawn RTS_UI_Help_start; }];
+
 //Display deploy list
 call RTS_UI_deployRefresh;
 

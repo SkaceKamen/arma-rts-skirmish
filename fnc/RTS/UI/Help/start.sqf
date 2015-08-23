@@ -1,5 +1,6 @@
 disableSerialization;
 
+
 _ok = createDialog "RTS_Help";
 if (!_ok) exitWith {
 	systemChat "Fatal error. Couldn't create dialog.";

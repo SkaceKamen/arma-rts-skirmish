@@ -83,6 +83,15 @@ class RTS_UI
 			style = ST_LEFT;
 		};
 		
+		class ButtonHelp : RscButton
+		{
+			idc = 7;
+			x = SafeZoneX + SafeZoneW - 0.21;
+			y = SafeZoneY + 0.01;
+			w = 0.2;
+			text = "Help";
+		};
+		
 		class DeployGroup : RscControlsGroup
 		{
 			idc = 6;

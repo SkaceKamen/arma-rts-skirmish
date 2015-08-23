@@ -3,7 +3,7 @@ disableSerialization;
 _ctrl = ["RTS_Config", "buttonArmy"] call RTS_getCtrl;
 _ctrl ctrlAddEventHandler ["ButtonClick", {	
 	closeDialog 0;
-	call RTS_UI_Army_start;
+	[] spawn RTS_UI_Army_start;
 	
 	//Used to test battle result
 	/*
@@ -40,8 +40,7 @@ _ctrl ctrlAddEventHandler ["ButtonClick", {
 
 _ctrl = ["RTS_Config", "buttonHelp"] call RTS_getCtrl;
 _ctrl ctrlAddEventHandler ["ButtonClick", {	
-	closeDialog 0;
-	call RTS_UI_Help_start;
+	[] spawn RTS_UI_Help_start;
 }];
 
 _ctrl = ["RTS_Config", "buttonStart"] call RTS_getCtrl;
