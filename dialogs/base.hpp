@@ -946,3 +946,77 @@ class RscControlsGroup
 		shadow=0;
 	};
 };
+
+class RscHTML
+{
+	access = 0;
+	type = 9;
+	idc = -1;
+	style = 0;
+	filename = "";
+	colorBackground[] = { 0,0,0,0 };
+	colorText[] = { 1,1,1,1 };
+	colorBold[] = { 1,1,1,1 };
+	colorLink[] = { 1,1,1,0.75 };
+	colorLinkActive[] = { 1,1,1,1 };
+	colorPicture[] = { 1,1,1,1 };
+	colorPictureLink[] = { 1,1,1,1 };
+	colorPictureSelected[] = { 1,1,1,1 };
+	colorPictureBorder[] = { 0,0,0,0 };
+	tooltipColorText[] = { 0,0,0,1 };
+	tooltipColorBox[] = { 0,0,0,0.5 };
+	tooltipColorShade[] = { 1,1,0.7,1 };
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	prevPage = "\A3\ui_f\data\gui\rsccommon\rschtml\arrow_left_ca.paa";
+	nextPage = "\A3\ui_f\data\gui\rsccommon\rschtml\arrow_right_ca.paa";
+	shadow = 2;
+	class H1
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
+		align = "left";
+	};
+	class H2
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "right";
+	};
+	class H3
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "left";
+	};
+	class H4
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "left";
+	};
+	class H5
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "left";
+	};
+	class H6
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "left";
+	};
+	class P
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "left";
+	};
+};

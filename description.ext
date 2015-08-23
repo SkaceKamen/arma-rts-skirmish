@@ -4,6 +4,7 @@
 #include "dialogs\config.hpp"
 #include "dialogs\army.hpp"
 #include "dialogs\result.hpp"
+#include "dialogs\help.hpp"
 
 author = "SkaceKachna";
 briefing = 0;

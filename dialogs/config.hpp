@@ -108,7 +108,7 @@ class RTS_Config
 			w = RTS_CHECK_W;
 			h = RTS_CONFIG_LINE_H;
 		};
-		
+				
 		class buttonStart : RscButton
 		{
 			idc = 1;
@@ -117,6 +117,16 @@ class RTS_Config
 			w = RTS_CONFIG_BUTTON_W;
 			h = RTS_CONFIG_BUTTON_H;
 			text = "Start";
+		};
+		
+		class buttonHelp : RscButton
+		{
+			idc = 6;
+			x = RTS_CONFIG_X + RTS_CONFIG_W - (RTS_CONFIG_BUTTON_W + RTS_CONFIG_PADDING) * 2;
+			y = RTS_CONFIG_Y + RTS_CONFIG_H - RTS_CONFIG_BUTTON_H - RTS_CONFIG_PADDING;
+			w = RTS_CONFIG_BUTTON_W;
+			h = RTS_CONFIG_BUTTON_H;
+			text = "Help";
 		};
 	};
 };

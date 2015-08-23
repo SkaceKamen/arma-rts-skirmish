@@ -167,8 +167,8 @@ while { !RTS_MAP_DONE } do {
 									{
 										_kn = _x knowsAbout _sld;
 										if (_kn <= 0) then {
-											if (!lineIntersects [eyePos(_sld), eyePos(_x), _sld, _x] &&
-												!terrainIntersect [eyePos(_sld), eyePos(_x)]) then {
+											if (!lineIntersects [eyePos(_sld), eyePos(_x), _sld, _x] /*&&
+												!terrainIntersect [eyePos(_sld), eyePos(_x)]*/) then {
 												group(_x) reveal _sld;
 												group(_sld) reveal _x;
 												_kn = 1;

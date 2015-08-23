@@ -1,5 +1,5 @@
 /**
- * Jack, simplest AI
+ * Mustard, simplest AI, but does stupid things
  */
 
 _side = _this select 0;
@@ -22,23 +22,13 @@ _stack_deployed = {
 
 //Prepare army
 _options = RTS_LIST_GROUPS select _index;
-_basic = [_index, "IF_BASIC"] call RTS_AI_findGroup;
 _car = [_index, "VEH_CAR"] call RTS_AI_findGroup;
-_armor = [_index, "VEH_APC_HEAVY"] call RTS_AI_findGroup;
-_heavy = [_index, "IF_SPEC"] call RTS_AI_findGroup;
+_at = [_index, "IF_AT_TEAM"] call RTS_AI_findGroup;
 _snip = [_index, "IF_SNIP"] call RTS_AI_findGroup;
 
 _army = [
 	[
-		[_basic, _basic, _basic],
-		_stack_deployed
-	],
-	[
-		[_car, _car, _car],
-		_stack_deployed
-	],
-	[
-		[_armor, _armor, _heavy, _snip],
+		[_car, _car, _car, _car, _car, _at, _snip, _at, _snip, _at, _snip, _at, _snip],
 		_stack_deployed
 	]
 ];

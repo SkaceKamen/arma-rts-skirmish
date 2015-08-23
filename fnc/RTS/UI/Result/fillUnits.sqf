@@ -69,7 +69,7 @@ lnbClear _ctrl;
 	_ctrl = ["RTS_Result", (_x select 1), ["controls", "unitsResult", "controls"]] call RTS_getCtrl;
 	if (count(_x select 0) > 0) then {
 		_params = (_x select 0) select 1;
-		_text = format["<t size='1.2'><img size='1.2' color='%3' shadow='0' image='%1'/> %2</t><br /><t color='#eee'>%4</t>", (_x select 0) call RTS_Group_getIcon, (_params select 0) select 0, ((_x select 0) call RTS_Group_getColor) call BIS_fnc_colorRGBAtoHTML, _x select 2];
+		_text = format["<t size='1.2'><img size='1.2' color='%3' shadow='0' image='%1'/> %2</t><br /><t color='#eeeeee'>%4</t>", (_x select 0) call RTS_Group_getIcon, (_params select 0) select 0, ((_x select 0) call RTS_Group_getColor) call BIS_fnc_colorRGBAtoHTML, _x select 2];
 		_ctrl ctrlSetStructuredText parseText(_text);
 	} else {
 		_ctrl ctrlSetStructuredText parseText("");

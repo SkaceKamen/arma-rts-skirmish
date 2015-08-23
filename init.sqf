@@ -102,10 +102,12 @@ _functions = [
 	
 	["AI", [
 		"start",
-		"findGroup"
+		"findGroup",
+		"deployStack"
 	]],
 	["AI", "Persons", [
-		"jack"
+		"jack",
+		"mustard"
 	]],
 	
 	["Stats", "Log"],
@@ -168,6 +170,8 @@ _functions = [
 		"speedSet",
 		"behaviourSet"
 	]],
+	
+	["UI", "Help", ["start", "unload"]],
 	
 	["OOP", "add"]
 ];

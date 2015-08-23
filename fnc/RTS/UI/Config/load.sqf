@@ -38,6 +38,12 @@ _ctrl ctrlAddEventHandler ["ButtonClick", {
 	*/
 }];
 
+_ctrl = ["RTS_Config", "buttonHelp"] call RTS_getCtrl;
+_ctrl ctrlAddEventHandler ["ButtonClick", {	
+	closeDialog 0;
+	call RTS_UI_Help_start;
+}];
+
 _ctrl = ["RTS_Config", "buttonStart"] call RTS_getCtrl;
 _ctrl ctrlAddEventHandler ["ButtonClick", {	
 	_ctrl = ["RTS_Config", "checkFog"] call RTS_getCtrl;
