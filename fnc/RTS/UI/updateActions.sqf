@@ -8,6 +8,7 @@ if (count(RTS_SELECTED) > 0) then {
 	_behaviour = "";
 	_speed = "";
 	_formation = "";
+	_alive = 0;
 	
 	//Determine behaviour, speed and formation of current selection
 	{
@@ -17,6 +18,8 @@ if (count(RTS_SELECTED) > 0) then {
 			_b = behaviour(_leader);
 			_s = speedMode(_group);
 			_f = formation(_group);
+			
+			_alive = _alive + ({ alive _x } count units(_group));
 			
 			if (_behaviour != _b && _behaviour == "") then {
 				_behaviour = _b;
@@ -44,22 +47,24 @@ if (count(RTS_SELECTED) > 0) then {
 		};
 	} foreach RTS_SELECTED;
 
-	//Get readable formation name
-	_fname = _formation;
-	if (_formation != "multiple") then {
-		_fname = RTS_FORMATIONS find _formation;
-		if (_fname != -1) then {
-			_fname = RTS_FORMATIONS_NAMES select _fname;
+	if (_alive > 0) then {
+		//Get readable formation name
+		_fname = _formation;
+		if (_formation != "multiple") then {
+			_fname = RTS_FORMATIONS find _formation;
+			if (_fname != -1) then {
+				_fname = RTS_FORMATIONS_NAMES select _fname;
+			};
 		};
+
+		//Generate action - currently static
+		_actions set [count(_actions), ["gfx\icon_stop.paa", "_this call RTS_UI_Actions_stop", "Stop"]];
+		_actions set [count(_actions), [format["gfx\icon_behaviour_%1.paa", [_behaviour] call BIS_fnc_filterString],"_this call RTS_UI_Actions_behaviour", format["Behaviour: %1", _behaviour]]];
+		_actions set [count(_actions), [format["gfx\icon_speed_%1.paa", [_speed] call BIS_fnc_filterString],"_this call RTS_UI_Actions_speed", format["Speed: %1", _speed]]];
+		_actions set [count(_actions), [format["gfx\icon_formation_%1.paa", [_formation] call BIS_fnc_filterString],"_this call RTS_UI_Actions_formation", format["Formation: %1", _fname]]];
+		_actions set [count(_actions), ["gfx\icon_getout.paa", "_this call RTS_UI_Actions_getOut", "Get out"]];
+		_actions set [count(_actions), ["gfx\icon_transport.paa", "_this call RTS_UI_Actions_transport", "Unload transport"]];
 	};
-	
-	//Generate action - currently static
-	_actions set [count(_actions), ["gfx\icon_stop.paa", "_this call RTS_UI_Actions_stop", "Stop"]];
-	_actions set [count(_actions), [format["gfx\icon_behaviour_%1.paa", [_behaviour] call BIS_fnc_filterString],"_this call RTS_UI_Actions_behaviour", format["Behaviour: %1", _behaviour]]];
-	_actions set [count(_actions), [format["gfx\icon_speed_%1.paa", [_speed] call BIS_fnc_filterString],"_this call RTS_UI_Actions_speed", format["Speed: %1", _speed]]];
-	_actions set [count(_actions), [format["gfx\icon_formation_%1.paa", [_formation] call BIS_fnc_filterString],"_this call RTS_UI_Actions_formation", format["Formation: %1", _fname]]];
-	_actions set [count(_actions), ["gfx\icon_getout.paa", "_this call RTS_UI_Actions_getOut", "Get out"]];
-	_actions set [count(_actions), ["gfx\icon_transport.paa", "_this call RTS_UI_Actions_transport", "Unload transport"]];
 };
 
 //Now display all allowed actions
