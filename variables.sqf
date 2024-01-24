@@ -154,5 +154,5 @@ RTS_SIDES = [ RTS_PLAYER_SIDE, RTS_ENEMY_SIDE ];
 RTS_STATE = "config";
 RTS_RESULT = false;
 
-KEYS = [];
-for[{_i=0},{_i<256},{_i=_i+1}] do { KEYS set [_i,false]; };
+KEYBOARD_KEYS = [];
+for[{_i=0},{_i<256},{_i=_i+1}] do { KEYBOARD_KEYS set [_i,false]; };

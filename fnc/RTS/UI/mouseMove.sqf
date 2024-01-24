@@ -11,7 +11,7 @@ MOUSE_WORLD_POSITION = screenToWorld MOUSE_POSITION;
 //Camera controls and selection
 if (MOUSE_PRESSED select MOUSE_MIDDLE ||
 	(MOUSE_PRESSED select MOUSE_LEFT &&
-	(KEYS select 0x1D || KEYS select 0x9D))) then {
+	(KEYBOARD_KEYS select 0x1D || KEYBOARD_KEYS select 0x9D))) then {
 	_pos = RTS_MOUSE_START select 0;
 	_dir = RTS_MOUSE_START select 1;
 	_yaw = RTS_MOUSE_START select 2;

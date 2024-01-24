@@ -15,7 +15,7 @@ if (count(_params) > 1) then {
 };
 
 if (_classname isKindOf "Man") then {
-	_unit = _group createUnit [_classname, _position, [], 0, "FORMATION"];
+	_unit = _group createUnit [_classname, _position, [], 0, "FORM"];
 	_unit addEventHandler ["Killed", RTS_Unit_killed];
 	_unit addEventHandler ["Fired", RTS_Unit_fired];
 	[_unit] joinSilent _group;
